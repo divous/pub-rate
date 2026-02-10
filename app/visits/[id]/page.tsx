@@ -5,6 +5,7 @@ import { ArrowLeft, Calendar, MapPin } from 'lucide-react'
 import { format } from 'date-fns'
 import { ScoreDisplay } from '@/components/score-display'
 import { RatingForm } from '@/components/rating-form'
+import { DeleteVisitButton } from '@/components/delete-visit-button'
 
 interface PageProps {
     params: Promise<{ id: string }>
@@ -31,7 +32,7 @@ export default async function VisitPage({ params }: PageProps) {
         .single()
 
     if (error || !visit) {
-        return <div className="p-8 text-center">Visit not found</div>
+        return <div className="p-8 text-center bg-zinc-950 text-white h-screen">Visit not found</div>
     }
 
     // Find user's existing rating
@@ -39,13 +40,16 @@ export default async function VisitPage({ params }: PageProps) {
 
     return (
         <div className="min-h-screen bg-zinc-950 text-white p-4 pb-20 md:p-8">
-            <header className="max-w-2xl mx-auto mb-8 flex items-center relative">
+            <header className="max-w-2xl mx-auto mb-8 flex items-center relative justify-center">
                 <Link href="/" className="absolute left-0 p-2 hover:bg-zinc-800 rounded-full transition-colors">
                     <ArrowLeft className="w-6 h-6 text-zinc-400" />
                 </Link>
-                <div className="w-full text-center">
+                <div className="text-center">
                     <h1 className="text-xl font-bold">{visit.restaurant_name}</h1>
                     <p className="text-xs text-zinc-500">{format(new Date(visit.visit_date), 'MMMM d, yyyy')}</p>
+                </div>
+                <div className="absolute right-0">
+                    <DeleteVisitButton visitId={id} />
                 </div>
             </header>
 
@@ -56,13 +60,11 @@ export default async function VisitPage({ params }: PageProps) {
                 {/* User Rating Form */}
                 <RatingForm visitId={id} existingRating={userRating} />
 
-                {/* Friends Reviews List (Optional for now, but good to iterate) */}
+                {/* Friends Reviews List */}
                 {visit.ratings.length > 0 && (
                     <div className="space-y-4 pt-4">
                         <h3 className="text-lg font-semibold text-zinc-300 px-2">Friends' Interactions</h3>
                         {visit.ratings.map((rating: any) => (
-                            // We don't have user names in ratings directly, need to fetch profiles or join. 
-                            // For now, let's just show the note if present.
                             rating.note ? (
                                 <div key={rating.id} className="bg-zinc-900 border border-zinc-800 p-4 rounded-2xl">
                                     <p className="text-zinc-600 text-xs mb-1">Review</p>
