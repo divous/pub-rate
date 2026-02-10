@@ -36,10 +36,10 @@ export default async function Home() {
       <header className="max-w-3xl mx-auto flex items-center justify-between mb-10 mt-4">
         <div>
           <h1 className="text-3xl font-bold bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
-            Your Visits
+            Vaše Návštěvy
           </h1>
           <p className="text-zinc-500 text-sm mt-1">
-            Track and rate your culinary adventures.
+            Sledujte a hodnoťte svá kulinářská dobrodružství.
           </p>
         </div>
         <div className="flex items-center gap-4">
@@ -60,8 +60,8 @@ export default async function Home() {
           ))
         ) : (
           <div className="text-center py-20 bg-zinc-900/50 rounded-3xl border border-zinc-800 border-dashed">
-            <p className="text-zinc-500">No visits recorded yet.</p>
-            <p className="text-zinc-600 text-sm">Start by adding your first restaurant!</p>
+            <p className="text-zinc-500">Zatím žádné zaznamenané návštěvy.</p>
+            <p className="text-zinc-600 text-sm">Začněte přidáním své první restaurace!</p>
           </div>
         )}
       </main>

@@ -20,7 +20,7 @@ export function DeleteVisitButton({ visitId }: { visitId: string }) {
             <button
                 onClick={() => setIsOpen(true)}
                 className="p-2 text-zinc-500 hover:text-red-500 hover:bg-red-500/10 rounded-full transition-colors"
-                title="Delete Visit"
+                title="Smazat Návštěvu"
             >
                 <Trash2 className="w-5 h-5" />
             </button>
@@ -46,11 +46,11 @@ export function DeleteVisitButton({ visitId }: { visitId: string }) {
                                 <div className="p-3 bg-red-500/10 rounded-full">
                                     <AlertTriangle className="w-6 h-6" />
                                 </div>
-                                <h3 className="text-lg font-bold text-white">Delete Visit?</h3>
+                                <h3 className="text-lg font-bold text-white">Smazat Návštěvu?</h3>
                             </div>
 
                             <p className="text-zinc-400 text-sm mb-6">
-                                Are you sure? This will permanently remove this visit and all associated ratings. This action cannot be undone.
+                                Jste si jistí? Toto trvale odstraní návštěvu a všechna asociovaná hodnocení. Tato akce je nevratná.
                             </p>
 
                             <div className="flex justify-end gap-3">
@@ -58,14 +58,14 @@ export function DeleteVisitButton({ visitId }: { visitId: string }) {
                                     onClick={() => setIsOpen(false)}
                                     className="px-4 py-2 text-zinc-400 hover:text-white font-medium transition-colors"
                                 >
-                                    Cancel
+                                    Zrušit
                                 </button>
                                 <button
                                     onClick={handleDelete}
                                     disabled={isDeleting}
                                     className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors disabled:opacity-50"
                                 >
-                                    {isDeleting ? 'Deleting...' : 'Delete'}
+                                    {isDeleting ? 'Mažu...' : 'Smazat'}
                                 </button>
                             </div>
                         </motion.div>

@@ -32,7 +32,7 @@ export default async function SettingsPage() {
                 <Link href="/" className="absolute left-0 p-2 hover:bg-zinc-800 rounded-full transition-colors">
                     <ArrowLeft className="w-6 h-6 text-zinc-400" />
                 </Link>
-                <h1 className="w-full text-center text-xl font-semibold">Settings</h1>
+                <h1 className="w-full text-center text-xl font-semibold">Nastavení</h1>
             </header>
 
             <main className="w-full max-w-lg">
@@ -42,18 +42,18 @@ export default async function SettingsPage() {
                             <Sliders className="w-6 h-6" />
                         </div>
                         <div>
-                            <h2 className="text-lg font-semibold">Rating Weights</h2>
-                            <p className="text-sm text-zinc-400">Adjust how much each category affects the score.</p>
+                            <h2 className="text-lg font-semibold">Váhy Hodnocení</h2>
+                            <p className="text-sm text-zinc-400">Upravte, jak moc každá kategorie ovlivňuje celkové skóre.</p>
                         </div>
                     </div>
 
                     <form action={updateSettings} className="space-y-6">
                         {[
-                            { id: 'food', label: 'Food', val: weights.food_weight },
-                            { id: 'drink', label: 'Drink', val: weights.drink_weight },
-                            { id: 'service', label: 'Service', val: weights.service_weight },
-                            { id: 'atmosphere', label: 'Atmosphere', val: weights.atmosphere_weight },
-                            { id: 'value', label: 'Value', val: weights.value_weight },
+                            { id: 'food', label: 'Jídlo', val: weights.food_weight },
+                            { id: 'drink', label: 'Pití', val: weights.drink_weight },
+                            { id: 'service', label: 'Obsluha', val: weights.service_weight },
+                            { id: 'atmosphere', label: 'Prostředí', val: weights.atmosphere_weight },
+                            { id: 'value', label: 'Cena/Výkon', val: weights.value_weight },
                         ].map((item) => (
                             <div key={item.id} className="space-y-2">
                                 <div className="flex justify-between text-sm">
@@ -76,7 +76,7 @@ export default async function SettingsPage() {
                             type="submit"
                             className="w-full bg-white text-zinc-950 font-bold py-3 rounded-xl hover:bg-zinc-100 transition-colors"
                         >
-                            Save Weights
+                            Uložit Váhy
                         </button>
                     </form>
                 </div>

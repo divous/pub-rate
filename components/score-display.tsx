@@ -37,11 +37,11 @@ export function ScoreDisplay({ ratings }: ScoreDisplayProps) {
     }
 
     const categories = [
-        { label: 'Food', value: finalAvg.food, color: 'bg-orange-500' },
-        { label: 'Drink', value: finalAvg.drink, color: 'bg-blue-500' },
-        { label: 'Service', value: finalAvg.service, color: 'bg-purple-500' },
-        { label: 'Atmosphere', value: finalAvg.atmosphere, color: 'bg-green-500' },
-        { label: 'Value', value: finalAvg.value, color: 'bg-yellow-500' },
+        { label: 'Jídlo', value: finalAvg.food, color: 'bg-orange-500' },
+        { label: 'Pití', value: finalAvg.drink, color: 'bg-blue-500' },
+        { label: 'Obsluha', value: finalAvg.service, color: 'bg-purple-500' },
+        { label: 'Prostředí', value: finalAvg.atmosphere, color: 'bg-green-500' },
+        { label: 'Cena/Výkon', value: finalAvg.value, color: 'bg-yellow-500' },
     ]
 
     const totalScore = Object.values(finalAvg).reduce((a, b) => a + b, 0) / 5
@@ -49,7 +49,7 @@ export function ScoreDisplay({ ratings }: ScoreDisplayProps) {
     return (
         <div className="bg-zinc-900/50 rounded-3xl p-6 border border-zinc-800">
             <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-semibold text-zinc-200">Overall Score</h3>
+                <h3 className="text-lg font-semibold text-zinc-200">Celkové Skóre</h3>
                 <div className="text-3xl font-bold bg-gradient-to-r from-orange-400 to-purple-500 bg-clip-text text-transparent">
                     {totalScore.toFixed(1)}
                 </div>

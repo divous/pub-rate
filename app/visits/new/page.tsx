@@ -9,7 +9,7 @@ export default function NewVisitPage() {
                 <Link href="/" className="absolute left-0 p-2 hover:bg-zinc-800 rounded-full transition-colors">
                     <ArrowLeft className="w-6 h-6 text-zinc-400" />
                 </Link>
-                <h1 className="w-full text-center text-xl font-semibold">New Visit</h1>
+                <h1 className="w-full text-center text-xl font-semibold">Nová Návštěva</h1>
             </header>
 
             <main className="w-full max-w-lg">
@@ -19,7 +19,7 @@ export default function NewVisitPage() {
 
                         <div className="space-y-2">
                             <label htmlFor="restaurantName" className="text-sm font-medium text-zinc-400 ml-1">
-                                Restaurant
+                                Restaurace
                             </label>
                             <div className="relative">
                                 <div className="absolute left-4 top-3.5 text-zinc-500">
@@ -30,7 +30,7 @@ export default function NewVisitPage() {
                                     name="restaurantName"
                                     id="restaurantName"
                                     required
-                                    placeholder="e.g. The Fancy Fork"
+                                    placeholder="např. U Tří Bernardýnů"
                                     className="w-full bg-zinc-950/50 border border-zinc-800 rounded-xl py-3 pl-12 pr-4 text-white placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-purple-500/50 transition-all"
                                 />
                             </div>
@@ -38,7 +38,7 @@ export default function NewVisitPage() {
 
                         <div className="space-y-2">
                             <label htmlFor="visitDate" className="text-sm font-medium text-zinc-400 ml-1">
-                                Date
+                                Datum
                             </label>
                             <div className="relative">
                                 <div className="absolute left-4 top-3.5 text-zinc-500">
@@ -61,7 +61,7 @@ export default function NewVisitPage() {
                         type="submit"
                         className="w-full bg-white text-zinc-950 font-bold py-4 rounded-xl shadow-lg shadow-white/5 hover:bg-zinc-100 active:scale-[0.98] transition-all"
                     >
-                        Create Visit
+                        Vytvořit Návštěvu
                     </button>
                 </form>
             </main>

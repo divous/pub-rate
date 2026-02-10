@@ -32,7 +32,7 @@ export default async function VisitPage({ params }: PageProps) {
         .single()
 
     if (error || !visit) {
-        return <div className="p-8 text-center bg-zinc-950 text-white h-screen">Visit not found</div>
+        return <div className="p-8 text-center bg-zinc-950 text-white h-screen">Návštěva nenalezena</div>
     }
 
     // Find user's existing rating
@@ -63,17 +63,17 @@ export default async function VisitPage({ params }: PageProps) {
                 {/* Friends Reviews List */}
                 {visit.ratings.length > 0 && (
                     <div className="space-y-4 pt-4">
-                        <h3 className="text-lg font-semibold text-zinc-300 px-2">Friends' Interactions</h3>
+                        <h3 className="text-lg font-semibold text-zinc-300 px-2">Komentáře přátel</h3>
                         {visit.ratings.map((rating: any) => (
                             rating.note ? (
                                 <div key={rating.id} className="bg-zinc-900 border border-zinc-800 p-4 rounded-2xl">
-                                    <p className="text-zinc-600 text-xs mb-1">Review</p>
+                                    <p className="text-zinc-600 text-xs mb-1">Recenze</p>
                                     <p className="text-zinc-300 italic">"{rating.note}"</p>
                                 </div>
                             ) : null
                         ))}
                         {visit.ratings.filter((r: any) => r.note).length === 0 && (
-                            <p className="text-zinc-500 text-sm px-2">No written reviews yet.</p>
+                            <p className="text-zinc-500 text-sm px-2">Zatím žádné slovní hodnocení.</p>
                         )}
                     </div>
                 )}

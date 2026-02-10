@@ -62,13 +62,13 @@ export function VisitCard({ visit, index }: VisitCardProps) {
                             </div>
                         ) : (
                             <div className="px-3 py-1 rounded-full text-xs font-medium bg-zinc-800 text-zinc-500 border border-zinc-700">
-                                No ratings
+                                Bez hodnocení
                             </div>
                         )}
                     </div>
 
                     <div className="flex items-center justify-between text-sm text-zinc-500 mt-2">
-                        <span>{visit.ratings?.length || 0} reviews</span>
+                        <span>{visit.ratings?.length || 0} hodnocení</span>
                         <div className="group-hover:translate-x-1 transition-transform">
                             <ChevronRight className="w-5 h-5 text-zinc-600 group-hover:text-zinc-300" />
                         </div>
