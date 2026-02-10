@@ -26,7 +26,10 @@ export default async function VisitPage({ params }: PageProps) {
         .from('visits')
         .select(`
       *,
-      ratings (*)
+      ratings (
+        *,
+        user:profiles(full_name, avatar_url)
+      )
     `)
         .eq('id', id)
         .single()
@@ -67,8 +70,18 @@ export default async function VisitPage({ params }: PageProps) {
                         {visit.ratings.map((rating: any) => (
                             rating.note ? (
                                 <div key={rating.id} className="bg-zinc-900 border border-zinc-800 p-4 rounded-2xl">
-                                    <p className="text-zinc-600 text-xs mb-1">Recenze</p>
-                                    <p className="text-zinc-300 italic">"{rating.note}"</p>
+                                    <div className="flex items-center gap-2 mb-3">
+                                        {rating.user?.avatar_url ? (
+                                            <img src={rating.user.avatar_url} alt={rating.user.full_name} className="w-6 h-6 rounded-full object-cover" />
+                                        ) : (
+                                            <div className="w-6 h-6 rounded-full bg-zinc-800" />
+                                        )}
+                                        <span className="text-zinc-200 text-sm font-medium">
+                                            {rating.user?.full_name || 'Neznámý uživatel'}
+                                        </span>
+                                    </div>
+                                    <p className="text-zinc-500 text-xs mb-1 uppercase tracking-wider font-semibold">Recenze</p>
+                                    <p className="text-zinc-300 italic text-base leading-relaxed">"{rating.note}"</p>
                                 </div>
                             ) : null
                         ))}
